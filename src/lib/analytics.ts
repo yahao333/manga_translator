@@ -96,8 +96,8 @@ function getPageInfo() {
 async function sendEvent(event: AnalyticsEvent): Promise<void> {
   try {
     // 发送到 Google Analytics
-    if (typeof window !== 'undefined' && typeof gtag !== 'undefined') {
-      gtag('event', event.event, {
+    if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+      window.gtag('event', event.event, {
         event_category: event.properties?.category || 'general',
         event_label: event.properties?.label || '',
         value: event.properties?.value || 0,
