@@ -136,9 +136,9 @@ function UploadSection({ locale, t }: { locale: Locale; t: any }) {
           {selectedFiles.length > 0 && (
             <div className="mt-6">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-medium">已选择文件:</h3>
+                <h3 className="font-medium">{t.upload.selected_files}</h3>
                 <div className="flex items-center space-x-2">
-                  <span className="text-sm text-gray-500">图片数量:</span>
+                  <span className="text-sm text-gray-500">{t.upload.image_count}</span>
                   <span className="bg-primary-100 text-primary-700 px-2 py-1 rounded-full text-sm font-medium">
                     {selectedFiles.length}
                   </span>
@@ -164,7 +164,7 @@ function UploadSection({ locale, t }: { locale: Locale; t: any }) {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>总计 {selectedFiles.length} 张图片，准备开始翻译</span>
+                  <span>{t.upload.ready_to_translate.replace('{count}', selectedFiles.length.toString())}</span>
                 </div>
               </div>
             </div>

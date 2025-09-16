@@ -43,7 +43,10 @@ export const translations = {
       select_file: '选择文件',
       start_translate: '开始翻译',
       processing: '处理中...',
-      success: '上传成功！'
+      success: '上传成功！',
+      selected_files: '已选择文件:',
+      image_count: '图片数量:',
+      ready_to_translate: '总计 {count} 张图片，准备开始翻译'
     },
     // 语言选择
     language: {
@@ -113,7 +116,7 @@ export const translations = {
       description: '基于先进 AI 技术的漫画翻译工具，让漫画跨越语言障碍',
       privacy: '隐私政策',
       terms: '使用条款',
-      copyright: '© 2024 漫画翻译神器. 保留所有权利.'
+      copyright: '© 2025 漫画翻译神器. 保留所有权利.'
     },
     // 通用
     common: {
@@ -155,7 +158,10 @@ export const translations = {
       select_file: 'Select Files',
       start_translate: 'Start Translation',
       processing: 'Processing...',
-      success: 'Upload successful!'
+      success: 'Upload successful!',
+      selected_files: 'Selected Files:',
+      image_count: 'Image Count:',
+      ready_to_translate: 'Total {count} images, ready to start translation'
     },
     // Language selection
     language: {
@@ -267,7 +273,10 @@ export const translations = {
       select_file: 'ファイルを選択',
       start_translate: '翻訳開始',
       processing: '処理中...',
-      success: 'アップロード成功！'
+      success: 'アップロード成功！',
+      selected_files: '選択されたファイル:',
+      image_count: '画像数:',
+      ready_to_translate: '合計 {count} 枚の画像、翻訳開始の準備完了'
     },
     // 言語選択
     language: {
@@ -337,7 +346,7 @@ export const translations = {
       description: '先進的なAI技術を活用したマンガ翻訳ツール、言語の壁を越える',
       privacy: 'プライバシーポリシー',
       terms: '利用規約',
-      copyright: '© 2024 マンガ翻訳ツール. 全著作権所有.'
+      copyright: '© 2025 マンガ翻訳ツール. 全著作権所有.'
     },
     // 共通
     common: {
