@@ -77,6 +77,19 @@ export default function RootLayout({
         {/* 性能优化 */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2N14800GY"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-J2N14800GY');
+            `
+          }}
+        />
       </head>
       <body className={`${inter.className} antialiased`}>
         <ClientInit />
