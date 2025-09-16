@@ -2,7 +2,7 @@
 export const locales = ['zh', 'en', 'ja'] as const;
 export type Locale = typeof locales[number];
 
-export const defaultLocale: Locale = 'zh';
+export const defaultLocale: Locale = 'en';
 
 // 语言显示名称
 export const localeNames: Record<Locale, string> = {
