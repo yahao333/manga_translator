@@ -97,7 +97,7 @@ export default function Navbar({ locale, onLocaleChange, translations: t }: Navb
               onClick={handleCTAClick}
               className="btn-primary hidden md:inline-block"
             >
-              立即体验
+              {t.nav.cta}
             </button>
 
             {/* 移动端菜单按钮 */}
@@ -145,7 +145,7 @@ export default function Navbar({ locale, onLocaleChange, translations: t }: Navb
                   onClick={handleCTAClick}
                   className="btn-primary w-full"
                 >
-                  立即体验
+                  {t.nav.cta}
                 </button>
               </div>
             </div>

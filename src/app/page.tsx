@@ -225,7 +225,7 @@ function LanguageSection({ locale, t }: { locale: Locale; t: any }) {
           
           <div className="text-center mt-8">
             <button className="btn-primary px-8 py-3">
-              开始翻译
+              {t.upload.start_translate}
             </button>
           </div>
         </div>
@@ -308,7 +308,7 @@ function Footer({ locale, t }: { locale: Locale; t: any }) {
           <div className="mb-8">
             <h3 className="text-2xl font-bold gradient-text mb-4">Manga Translator</h3>
             <p className="text-gray-400 max-w-md mx-auto">
-              基于先进 AI 技术的漫画翻译工具，让漫画跨越语言障碍
+              {t.footer.description}
             </p>
           </div>
           

@@ -23,7 +23,8 @@ export const translations = {
       home: '首页',
       features: '功能',
       demo: '演示',
-      about: '关于'
+      about: '关于',
+      cta: '立即体验'
     },
     // Hero 区域
     hero: {
@@ -39,6 +40,7 @@ export const translations = {
       description: '支持 JPG、PNG、WebP 格式，最大 10MB',
       drag_text: '拖拽图片到此处，或点击选择文件',
       select_file: '选择文件',
+      start_translate: '开始翻译',
       processing: '处理中...',
       success: '上传成功！'
     },
@@ -107,6 +109,7 @@ export const translations = {
     },
     // 页脚
     footer: {
+      description: '基于先进 AI 技术的漫画翻译工具，让漫画跨越语言障碍',
       privacy: '隐私政策',
       terms: '使用条款',
       copyright: '© 2024 漫画翻译神器. 保留所有权利.'
@@ -126,12 +129,13 @@ export const translations = {
     title: 'Manga Translator - AI-Powered Comic Translation',
     description: 'Translate manga quickly with AI technology, supporting multiple languages while preserving original layout and style',
     
-    // Navigation
+    // 导航
     nav: {
       home: 'Home',
       features: 'Features',
       demo: 'Demo',
-      about: 'About'
+      about: 'About',
+      cta: 'Try Now'
     },
     // Hero section
     hero: {
@@ -147,6 +151,7 @@ export const translations = {
       description: 'Supports JPG, PNG, WebP formats, max 10MB',
       drag_text: 'Drag images here, or click to select files',
       select_file: 'Select Files',
+      start_translate: 'Start Translation',
       processing: 'Processing...',
       success: 'Upload successful!'
     },
@@ -215,9 +220,10 @@ export const translations = {
     },
     // Footer
     footer: {
+      description: 'Advanced AI-powered manga translation tool that breaks language barriers',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
-      copyright: '© 2024 Manga Translator. All rights reserved.'
+      copyright: '© 2025 Manga Translator. All rights reserved.'
     },
     // Common
     common: {
@@ -234,12 +240,13 @@ export const translations = {
     title: 'マンガ翻訳ツール - AI搭載コミック翻訳',
     description: 'AI技術を使用してマンガを素早く翻訳、複数言語をサポートし、元のレイアウトとスタイルを保持',
     
-    // ナビゲーション
+    // 导航
     nav: {
       home: 'ホーム',
       features: '機能',
       demo: 'デモ',
-      about: 'について'
+      about: 'について',
+      cta: '今すぐ試す'
     },
     // ヒーローセクション
     hero: {
@@ -255,6 +262,7 @@ export const translations = {
       description: 'JPG、PNG、WebP形式対応、最大10MB',
       drag_text: '画像をここにドラッグするか、クリックしてファイルを選択',
       select_file: 'ファイルを選択',
+      start_translate: '翻訳開始',
       processing: '処理中...',
       success: 'アップロード成功！'
     },
@@ -323,6 +331,7 @@ export const translations = {
     },
     // フッター
     footer: {
+      description: '先進的なAI技術を活用したマンガ翻訳ツール、言語の壁を越える',
       privacy: 'プライバシーポリシー',
       terms: '利用規約',
       copyright: '© 2024 マンガ翻訳ツール. 全著作権所有.'
