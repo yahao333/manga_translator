@@ -135,3 +135,5 @@ public/workbox-*.js.map
 public/worker-*.js.map
 
 .trae/
+screenshot.png
+details.md
