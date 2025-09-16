@@ -25,6 +25,7 @@ export const EVENTS = {
   UPLOAD_ERROR: 'upload_error',
   FILE_SELECT: 'file_select',
   DRAG_DROP: 'drag_drop',
+  UPLOAD_COUNT: 'upload_count',
   
   // 翻译相关事件
   TRANSLATION_START: 'translation_start',
@@ -186,6 +187,15 @@ export function trackFeatureView(featureName: string): void {
 export function trackFAQExpand(question: string): void {
   track(EVENTS.FAQ_EXPAND, {
     question: question
+  });
+}
+
+// 追踪图片数量统计
+export function trackImageCount(count: number, section: string = 'upload'): void {
+  track(EVENTS.UPLOAD_COUNT, {
+    image_count: count,
+    section,
+    timestamp: new Date().toISOString()
   });
 }
 

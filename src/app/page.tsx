@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { trackPageView, trackCTAClick, trackButtonClick } from '@/lib/analytics';
+import { trackPageView, trackCTAClick, trackButtonClick, trackImageCount } from '@/lib/analytics';
 import { translations, defaultLocale, type Locale } from '@/lib/i18n';
 import Navbar from '@/components/Navbar';
 
@@ -76,16 +76,24 @@ function UploadSection({ locale, t }: { locale: Locale; t: any }) {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragOver(false);
-    const files = Array.from(e.dataTransfer.files);
+    const files = Array.from(e.dataTransfer.files).filter(file => file.type.startsWith('image/'));
     setSelectedFiles(files);
     trackButtonClick('drag_drop', 'upload_section');
+    // 统计上传图片数量
+    if (files.length > 0) {
+      trackImageCount(files.length, 'upload_section');
+    }
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const files = Array.from(e.target.files);
+      const files = Array.from(e.target.files).filter(file => file.type.startsWith('image/'));
       setSelectedFiles(files);
       trackButtonClick('file_select', 'upload_section');
+      // 统计上传图片数量
+      if (files.length > 0) {
+        trackImageCount(files.length, 'upload_section');
+      }
     }
   };
 
@@ -127,14 +135,37 @@ function UploadSection({ locale, t }: { locale: Locale; t: any }) {
           
           {selectedFiles.length > 0 && (
             <div className="mt-6">
-              <h3 className="font-medium mb-3">已选择文件:</h3>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-medium">已选择文件:</h3>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-gray-500">图片数量:</span>
+                  <span className="bg-primary-100 text-primary-700 px-2 py-1 rounded-full text-sm font-medium">
+                    {selectedFiles.length}
+                  </span>
+                </div>
+              </div>
               <div className="space-y-2">
                 {selectedFiles.map((file, index) => (
                   <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg border">
-                    <span className="text-sm text-gray-600">{file.name}</span>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                        <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <span className="text-sm text-gray-600">{file.name}</span>
+                    </div>
                     <span className="text-xs text-gray-400">{(file.size / 1024 / 1024).toFixed(2)} MB</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                <div className="flex items-center space-x-2 text-sm text-blue-700">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>总计 {selectedFiles.length} 张图片，准备开始翻译</span>
+                </div>
               </div>
             </div>
           )}
