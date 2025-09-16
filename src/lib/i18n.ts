@@ -32,7 +32,8 @@ export const translations = {
       subtitle: '让全世界的漫画都能被理解',
       description: '使用最先进的AI技术，一键翻译漫画内容，保持原有排版和艺术风格',
       cta: '立即开始翻译',
-      demo: '查看演示'
+      demo: '查看演示',
+      secondary_cta: '联系我们',
     },
     // 上传区域
     upload: {
@@ -143,7 +144,8 @@ export const translations = {
       subtitle: 'Making manga accessible worldwide',
       description: 'Using cutting-edge AI technology to translate manga content with one click, preserving original layout and artistic style',
       cta: 'Start Translating',
-      demo: 'View Demo'
+      demo: 'View Demo',
+      secondary_cta: 'Contact Us',
     },
     // Upload area
     upload: {
@@ -254,7 +256,8 @@ export const translations = {
       subtitle: '世界中のマンガを理解可能に',
       description: '最先端のAI技術を使用して、ワンクリックでマンガコンテンツを翻訳し、元のレイアウトと芸術的スタイルを保持',
       cta: '翻訳を開始',
-      demo: 'デモを見る'
+      demo: 'デモを見る',
+      secondary_cta: 'お問い合わせ'
     },
     // アップロードエリア
     upload: {
