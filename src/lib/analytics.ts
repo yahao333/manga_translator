@@ -1,5 +1,13 @@
 // 事件埋点追踪系统
 
+// 声明全局 gtag 函数类型
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
+  }
+}
+
 // 事件类型定义
 export interface AnalyticsEvent {
   event: string;
@@ -87,15 +95,27 @@ function getPageInfo() {
 // 发送事件到分析服务
 async function sendEvent(event: AnalyticsEvent): Promise<void> {
   try {
-    // 在实际项目中，这里应该发送到真实的分析服务
-    // 比如 Google Analytics, Mixpanel, 或自建的分析服务
+    // 发送到 Google Analytics
+    if (typeof window !== 'undefined' && typeof gtag !== 'undefined') {
+      gtag('event', event.event, {
+        event_category: event.properties?.category || 'general',
+        event_label: event.properties?.label || '',
+        value: event.properties?.value || 0,
+        custom_parameters: {
+          ...event.properties,
+          user_id: event.userId,
+          session_id: event.sessionId,
+          timestamp: event.timestamp
+        }
+      });
+    }
     
     // 开发环境下输出到控制台
     if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
       console.log('📊 Analytics Event:', event);
     }
     
-    // 这里可以添加实际的发送逻辑
+    // 这里可以添加其他分析服务的发送逻辑
     // await fetch('/api/analytics', {
     //   method: 'POST',
     //   headers: { 'Content-Type': 'application/json' },
