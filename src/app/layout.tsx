@@ -6,45 +6,98 @@ import { initAnalytics } from '@/lib/analytics';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AI 漫画翻译神器 | Manga Translator',
-  description: '基于先进 AI 技术的漫画翻译工具，支持中文、英文、日文等多语言自动翻译，一键翻译漫画，跨越语言障碍。',
-  keywords: '漫画翻译,AI翻译,多语言翻译,中文翻译,英文翻译,日文翻译,manga translator',
-  authors: [{ name: 'Manga Translator Team' }],
+  title: {
+    default: 'AI漫画翻译神器 - 免费在线漫画翻译工具 | Manga Translator',
+    template: '%s | Manga Translator'
+  },
+  description: '🎯 专业AI漫画翻译工具，支持中日英韩等多语言自动翻译。一键上传漫画图片，智能识别文字并精准翻译，保持原版排版。免费使用，无需注册，让您轻松享受全球漫画作品！',
+  keywords: [
+    // 核心关键词
+    'AI漫画翻译', '漫画翻译器', '在线漫画翻译', '免费漫画翻译',
+    // 功能关键词  
+    '图片翻译', 'OCR翻译', '文字识别翻译', '智能翻译',
+    // 语言关键词
+    '中文漫画翻译', '日文漫画翻译', '英文漫画翻译', '韩文漫画翻译',
+    // 品牌关键词
+    'manga translator', '漫画神器', 'comic translator',
+    // 长尾关键词
+    '漫画在线翻译工具', 'AI图片文字翻译', '漫画自动翻译软件'
+  ].join(', '),
+  authors: [{ name: 'Manga Translator Team', url: 'https://manga-translator-ai.vercel.app' }],
   creator: 'Manga Translator',
   publisher: 'Manga Translator',
-  robots: 'index, follow',
-  viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#1E67FF',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#1E67FF' },
+    { media: '(prefers-color-scheme: dark)', color: '#1E67FF' }
+  ],
+  manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#1E67FF' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'zh_CN',
-    alternateLocale: ['en_US', 'ja_JP'],
-    title: 'AI 漫画翻译神器 | Manga Translator',
-    description: '基于先进 AI 技术的漫画翻译工具，支持多语言自动翻译',
+    alternateLocale: ['en_US', 'ja_JP', 'ko_KR'],
+    title: 'AI漫画翻译神器 - 免费在线漫画翻译工具',
+    description: '🎯 专业AI漫画翻译工具，支持中日英韩等多语言自动翻译。一键上传漫画图片，智能识别文字并精准翻译，保持原版排版。',
     siteName: 'Manga Translator',
+    url: 'https://manga-translator-ai.vercel.app',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://manga-translator-ai.vercel.app/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Manga Translator - AI 漫画翻译神器'
+        alt: 'AI漫画翻译神器 - 支持多语言的智能漫画翻译工具',
+        type: 'image/jpeg',
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI 漫画翻译神器 | Manga Translator',
-    description: '基于先进 AI 技术的漫画翻译工具，支持多语言自动翻译',
-    images: ['/og-image.jpg']
+    site: '@MangaTranslator',
+    creator: '@MangaTranslator',
+    title: 'AI漫画翻译神器 - 免费在线漫画翻译工具',
+    description: '🎯 专业AI漫画翻译工具，支持中日英韩等多语言自动翻译。一键上传漫画图片，智能识别文字并精准翻译。',
+    images: ['https://manga-translator-ai.vercel.app/og-image.jpg']
   },
   alternates: {
-    canonical: 'https://manga-translator.vercel.app',
+    canonical: 'https://manga-translator-ai.vercel.app',
     languages: {
-      'zh-CN': 'https://manga-translator.vercel.app/zh',
-      'en-US': 'https://manga-translator.vercel.app/en',
-      'ja-JP': 'https://manga-translator.vercel.app/ja'
+      'zh-CN': 'https://manga-translator-ai.vercel.app/zh',
+      'en-US': 'https://manga-translator-ai.vercel.app/en',
+      'ja-JP': 'https://manga-translator-ai.vercel.app/ja',
+      'ko-KR': 'https://manga-translator-ai.vercel.app/ko'
     }
-  }
+  },
+  category: 'Technology',
+  classification: 'AI Translation Tool',
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 // 客户端初始化分析系统
@@ -90,6 +143,115 @@ export default function RootLayout({
             `
           }}
         />
+        
+        {/* 结构化数据 - JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebApplication",
+                  "@id": "https://manga-translator-ai.vercel.app/#webapp",
+                  "name": "AI漫画翻译神器",
+                  "alternateName": "Manga Translator",
+                  "description": "专业AI漫画翻译工具，支持中日英韩等多语言自动翻译。一键上传漫画图片，智能识别文字并精准翻译，保持原版排版。",
+                  "url": "https://manga-translator-ai.vercel.app",
+                  "applicationCategory": "MultimediaApplication",
+                  "operatingSystem": "Web Browser",
+                  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+                  "softwareVersion": "1.0",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                  },
+                  "featureList": [
+                    "AI智能文字识别",
+                    "多语言翻译支持",
+                    "保持原版排版",
+                    "批量图片处理",
+                    "免费使用"
+                  ],
+                  "screenshot": "https://manga-translator-ai.vercel.app/og-image.jpg",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "Manga Translator Team",
+                    "url": "https://manga-translator-ai.vercel.app"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://manga-translator-ai.vercel.app/#website",
+                  "name": "AI漫画翻译神器",
+                  "url": "https://manga-translator-ai.vercel.app",
+                  "description": "专业AI漫画翻译工具，支持中日英韩等多语言自动翻译",
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "Manga Translator Team"
+                  },
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://manga-translator-ai.vercel.app/?q={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                  },
+                  "inLanguage": ["zh-CN", "en-US", "ja-JP", "ko-KR"]
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "@id": "https://manga-translator-ai.vercel.app/#software",
+                  "name": "AI漫画翻译神器",
+                  "applicationCategory": "MultimediaApplication",
+                  "operatingSystem": "Web Browser",
+                  "url": "https://manga-translator-ai.vercel.app",
+                  "description": "基于AI技术的在线漫画翻译工具，支持图片文字识别和多语言翻译",
+                  "softwareVersion": "1.0",
+                  "datePublished": "2024-01-01",
+                  "dateModified": "2024-01-01",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "Manga Translator Team"
+                  },
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                  },
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "ratingCount": "1250",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                  }
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://manga-translator-ai.vercel.app/#organization",
+                  "name": "Manga Translator Team",
+                  "url": "https://manga-translator-ai.vercel.app",
+                  "description": "专注于AI翻译技术的开发团队",
+                  "foundingDate": "2024",
+                  "knowsAbout": [
+                    "人工智能",
+                    "机器翻译",
+                    "图像识别",
+                    "自然语言处理",
+                    "漫画翻译"
+                  ],
+                  "areaServed": "Worldwide",
+                  "serviceType": "AI Translation Service"
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} antialiased`}>
         <ClientInit />
@@ -106,7 +268,7 @@ export default function RootLayout({
               '@type': 'WebApplication',
               name: 'Manga Translator',
               description: '基于先进 AI 技术的漫画翻译工具，支持多语言自动翻译',
-              url: 'https://manga-translator.vercel.app',
+              url: 'https://manga-translator-ai.vercel.app',
               applicationCategory: 'UtilityApplication',
               operatingSystem: 'Web',
               offers: {

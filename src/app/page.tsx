@@ -12,47 +12,49 @@ function HeroSection({ locale, t }: { locale: Locale; t: any }) {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" role="banner">
       {/* 背景渐变 */}
-      <div className="absolute inset-0 gradient-bg opacity-5"></div>
+      <div className="absolute inset-0 gradient-bg opacity-5" aria-hidden="true"></div>
       
       {/* 装饰性元素 */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-20 animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-20 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-20 animate-float" aria-hidden="true"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }} aria-hidden="true"></div>
       
       <div className="container-custom relative z-10 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* 主标题 */}
+        <header className="max-w-4xl mx-auto">
+          {/* 主标题 - 包含核心SEO关键词 */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
             <span className="gradient-text">{t.hero.title}</span>
           </h1>
           
-          {/* 副标题 */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          {/* 副标题 - 包含长尾关键词 */}
+          <h2 className="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             {t.hero.subtitle}
-          </p>
+          </h2>
           
-          {/* 描述 */}
+          {/* 描述 - 包含功能关键词 */}
           <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.4s' }}>
             {t.hero.description}
           </p>
           
           {/* CTA 按钮 */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.6s' }}>
+          <nav className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.6s' }} role="navigation" aria-label="主要操作">
             <button 
               className="btn-primary text-lg px-8 py-4"
               onClick={() => handleCTAClick('primary')}
+              aria-label="开始免费翻译漫画"
             >
               {t.hero.cta}
             </button>
             <button 
               className="btn-secondary text-lg px-8 py-4"
               onClick={() => handleCTAClick('secondary')}
+              aria-label="查看翻译示例"
             >
               {t.hero.secondary_cta}
             </button>
-          </div>
-        </div>
+          </nav>
+        </header>
       </div>
     </section>
   );
@@ -98,12 +100,12 @@ function UploadSection({ locale, t }: { locale: Locale; t: any }) {
   };
 
   return (
-    <section id="upload" className="py-20 bg-gray-50">
+    <section id="upload" className="py-20 bg-gray-50" role="main" aria-labelledby="upload-title">
       <div className="container-custom">
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.upload.title}</h2>
+        <header className="max-w-2xl mx-auto text-center mb-12">
+          <h2 id="upload-title" className="text-3xl md:text-4xl font-bold mb-4">{t.upload.title}</h2>
           <p className="text-gray-600">{t.upload.description}</p>
-        </div>
+        </header>
         
         <div className="max-w-xl mx-auto">
           <div 
@@ -111,10 +113,13 @@ function UploadSection({ locale, t }: { locale: Locale; t: any }) {
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
+            role="region"
+            aria-label="文件上传区域"
+            tabIndex={0}
           >
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 rounded-full flex items-center justify-center" aria-hidden="true">
+                <svg className="w-8 h-8 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
               </div>
@@ -126,43 +131,47 @@ function UploadSection({ locale, t }: { locale: Locale; t: any }) {
                 onChange={handleFileSelect}
                 className="hidden"
                 id="file-upload"
+                aria-describedby="file-upload-description"
               />
-              <label htmlFor="file-upload" className="btn-primary cursor-pointer inline-block">
+              <label htmlFor="file-upload" className="btn-primary cursor-pointer inline-block" role="button" tabIndex={0}>
                 {t.upload.select_file}
               </label>
+              <div id="file-upload-description" className="sr-only">
+                支持JPG、PNG、GIF等图片格式，可同时选择多个文件
+              </div>
             </div>
           </div>
           
           {selectedFiles.length > 0 && (
-            <div className="mt-6">
+            <div className="mt-6" role="region" aria-label="已选择的文件列表">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-medium">{t.upload.selected_files}</h3>
                 <div className="flex items-center space-x-2">
                   <span className="text-sm text-gray-500">{t.upload.image_count}</span>
-                  <span className="bg-primary-100 text-primary-700 px-2 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-primary-100 text-primary-700 px-2 py-1 rounded-full text-sm font-medium" aria-label={`已选择 ${selectedFiles.length} 个文件`}>
                     {selectedFiles.length}
                   </span>
                 </div>
               </div>
-              <div className="space-y-2">
+              <ul className="space-y-2" role="list">
                 {selectedFiles.map((file, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg border">
+                  <li key={index} className="flex items-center justify-between p-3 bg-white rounded-lg border" role="listitem">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
-                        <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center" aria-hidden="true">
+                        <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <span className="text-sm text-gray-600">{file.name}</span>
                     </div>
-                    <span className="text-xs text-gray-400">{(file.size / 1024 / 1024).toFixed(2)} MB</span>
-                  </div>
+                    <span className="text-xs text-gray-400" aria-label={`文件大小 ${(file.size / 1024 / 1024).toFixed(2)} MB`}>{(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                  </li>
                 ))}
-              </div>
-              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+              </ul>
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg" role="status" aria-live="polite">
                 <div className="flex items-center space-x-2 text-sm text-blue-700">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <span>{t.upload.ready_to_translate.replace('{count}', selectedFiles.length.toString())}</span>
                 </div>
@@ -431,36 +440,47 @@ function FAQSection({ locale, t }: { locale: Locale; t: any }) {
   };
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-20 bg-white" role="region" aria-labelledby="faq-title">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.faq.title}</h2>
-        </div>
+        <header className="text-center mb-16">
+          <h2 id="faq-title" className="text-3xl md:text-4xl font-bold mb-4">{t.faq.title}</h2>
+        </header>
         
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto" role="list" aria-label="常见问题列表">
           {faqs.map((faq, index) => (
-            <div key={index} className="mb-4">
+            <article key={index} className="mb-4" role="listitem" itemScope itemType="https://schema.org/Question">
               <button
                 className="w-full text-left p-6 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex justify-between items-center"
                 onClick={() => toggleFAQ(index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
               >
-                <span className="font-semibold text-lg">{faq.question}</span>
+                <span className="font-semibold text-lg" itemProp="name">{faq.question}</span>
                 <svg 
                   className={`w-6 h-6 transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`}
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               
               {openIndex === index && (
-                <div className="px-6 py-4 bg-white border border-gray-100 rounded-b-xl animate-slide-up">
-                  <p className="text-gray-600">{faq.answer}</p>
+                <div 
+                  className="px-6 py-4 bg-white border border-gray-100 rounded-b-xl animate-slide-up"
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
+                  itemScope 
+                  itemType="https://schema.org/Answer"
+                >
+                  <p className="text-gray-600" itemProp="text">{faq.answer}</p>
                 </div>
               )}
-            </div>
+            </article>
           ))}
         </div>
       </div>

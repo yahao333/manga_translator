@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- 主页 -->
+  <url>
+    <loc>https://manga-translator-ai.vercel.app/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://manga-translator-ai.vercel.app/zh" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://manga-translator-ai.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://manga-translator-ai.vercel.app/ja" />
+    <xhtml:link rel="alternate" hreflang="ko-KR" href="https://manga-translator-ai.vercel.app/ko" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manga-translator-ai.vercel.app/" />
+  </url>
+  
+  <!-- 中文版本 -->
+  <url>
+    <loc>https://manga-translator-ai.vercel.app/zh</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://manga-translator-ai.vercel.app/zh" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://manga-translator-ai.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://manga-translator-ai.vercel.app/ja" />
+    <xhtml:link rel="alternate" hreflang="ko-KR" href="https://manga-translator-ai.vercel.app/ko" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manga-translator-ai.vercel.app/" />
+  </url>
+  
+  <!-- 英文版本 -->
+  <url>
+    <loc>https://manga-translator-ai.vercel.app/en</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://manga-translator-ai.vercel.app/zh" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://manga-translator-ai.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://manga-translator-ai.vercel.app/ja" />
+    <xhtml:link rel="alternate" hreflang="ko-KR" href="https://manga-translator-ai.vercel.app/ko" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manga-translator-ai.vercel.app/" />
+  </url>
+  
+  <!-- 日文版本 -->
+  <url>
+    <loc>https://manga-translator-ai.vercel.app/ja</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://manga-translator-ai.vercel.app/zh" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://manga-translator-ai.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://manga-translator-ai.vercel.app/ja" />
+    <xhtml:link rel="alternate" hreflang="ko-KR" href="https://manga-translator-ai.vercel.app/ko" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manga-translator-ai.vercel.app/" />
+  </url>
+  
+  <!-- 韩文版本 -->
+  <url>
+    <loc>https://manga-translator-ai.vercel.app/ko</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://manga-translator-ai.vercel.app/zh" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://manga-translator-ai.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://manga-translator-ai.vercel.app/ja" />
+    <xhtml:link rel="alternate" hreflang="ko-KR" href="https://manga-translator-ai.vercel.app/ko" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manga-translator-ai.vercel.app/" />
+  </url>
+  
+</urlset>
